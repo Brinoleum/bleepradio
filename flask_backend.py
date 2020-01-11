@@ -12,6 +12,9 @@ bootstrap = Bootstrap(app)
 class LyricForm(FlaskForm):
     lyric = StringField('lyric')
 
+def hello():
+    return "Hello"
+
 @app.route('/', methods =['GET', 'POST'])
 def my_form():
     form = LyricForm()
@@ -19,7 +22,9 @@ def my_form():
         text = request.form['lyric']
         processed = process_lyrics(text)
         return redirect(url_for('lyrics', lyric=processed))
+
     return render_template('text_box.html', form=form)
+
 
 @app.route('/lyrics')
 def lyrics():
