@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request
 
 app = Flask(__name__)
-#http://127.0.0.1:5000/AudioBleeper
+#http://127.0.0.1:5000/
 
 @app.route('/')
 def my_form():
@@ -10,5 +10,5 @@ def my_form():
 @app.route('/', methods=['POST'])
 def my_form_post():
     text = request.form['text']
-    processed_text = text.upper() #this will run the function that will modify the bleeps
+    processed_text = text.upper() #FIXME this will run the function that will modify the bleeps
     return processed_text
