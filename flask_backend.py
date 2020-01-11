@@ -1,5 +1,5 @@
-from flask import Flask, render_template, redirect, url_for, request
 from src.process_lyrics import process_lyrics, output_processed
+from flask import Flask, render_template, redirect, url_for, request
 
 app = Flask(__name__)
 #http://127.0.0.1:5000/
