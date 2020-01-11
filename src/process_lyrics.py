@@ -13,7 +13,7 @@ swear_replacements = [
         "enolo", "kakotin"]
 
 def retrieve_lyrics(artist_name, song_title):
-    song = Song(artist_name, song_title)
+    song = Song.find_song(artist_name + song_title)
     return song.lyrics
 
 
