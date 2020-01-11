@@ -26,7 +26,7 @@ def process_lyrics(name):
     # (actually because many censors use asterisks that might still work
     # if the music was already censored to an extent)
     profanity.load_censor_words()
-    custom_profanity = ["nigger", "nigga", "niggaz", "dicks"]
+    custom_profanity = ["nigger", "nigga", "niggaz", "dicks", "niggas"]
     profanity.add_censor_words(custom_profanity)
     lyrics = Song.find_song(name).lyrics
     print(lyrics)
@@ -63,3 +63,6 @@ def random_bgm():
     filename = random.choice(os.listdir(dir))
 
     return str(filename)
+
+def song_name(name):
+    return str(Song.find_song(name).title)
