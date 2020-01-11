@@ -5,10 +5,16 @@ from better_profanity import profanity
 import random
 from google.cloud import texttospeech
 import os
+from tswift import Song
 
 swear_replacements = [
         "bleezleborp", "plumbus", "atoteh", "boobasnot", "mychuno", 
         "litzergam", "dobbinips"]
+
+def retrieve_lyrics(artist_name, song_title):
+    song = Song(artist_name, song_title)
+    return song.lyrics
+
 
 # TODO: get the input from the user and feed that into the profanity filter
 def process_lyrics(lyrics):
