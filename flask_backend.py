@@ -15,8 +15,8 @@ def my_form_post():
     text = request.form['text']
     # process_lyrics replaces swears with Simlish
     processed = text
-    #output_processed(processed)
+    output_processed(processed)
     # so this should print the processed lyrics to the page
     # side effects: writes the text-to-speech binary mp3 to a file
-    return processed.upper()
+    return processed
 
