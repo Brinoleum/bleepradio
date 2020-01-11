@@ -1,3 +1,4 @@
+from src.process_lyrics import process_lyrics, output_processed
 from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
