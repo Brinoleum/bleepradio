@@ -17,5 +17,5 @@ def my_form_post():
     #output_processed(processed)
     # so this should print the processed lyrics to the page
     # side effects: writes the text-to-speech binary mp3 to a file
-    return processed
+    return processed.upper()
 

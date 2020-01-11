@@ -1,2 +1,2 @@
-FLASK_APP=flask_backend.py
-FLASK_ENV=development
+set FLASK_APP=flask_backend.py
+set FLASK_ENV=development

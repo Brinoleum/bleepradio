@@ -1,13 +1,7 @@
 {% extends "bootstrap/base.html" %}
 
 {% block content %}
-<style
-    h1{
-      text-align: center;
-      color: Aqua;
-    }
-<style>
-    <link rel="stylesheet" type ="text/css" href="{{url_for('static', filename='static.css')}}">
+    <link rel="stylesheet" type ="text/css" href="{{ url_for('static', filename='style.css')}}">
     <h1>Enter in Lyrics To Bleep Them!!</h1>
     <form method="POST">
         <input name="text">
@@ -15,27 +9,3 @@
 
     </form>
 {% endblock %}
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<style>
-    form{
-    height:500px;
-    font-size:14pt;
-    }
-
-</style>
-<head>
-    <title>Bleeper</title>
-    <h1>Enter in Lyrics To Bleep Them!!</h1>
-    <form method="POST">
-        <input name="text">
-        <input type="submit">
-
-    </form>
-</head>
-<body>
-
-</body>
-</html>
--->
