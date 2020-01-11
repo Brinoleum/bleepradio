@@ -28,7 +28,7 @@ def process_lyrics(name):
     # (actually because many censors use asterisks that might still work
     # if the music was already censored to an extent)
     profanity.load_censor_words()
-    custom_profanity = ["nigger", "nigga"]
+    custom_profanity = ["nigger", "nigga", "niggaz", "dick"]
     profanity.add_censor_words(custom_profanity)
     lyrics = Song.find_song(name).lyrics
     print(lyrics)
