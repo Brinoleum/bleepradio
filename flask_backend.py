@@ -25,7 +25,8 @@ def my_form():
 def lyrics():
     lyric = request.args.get('lyric', None)
     output_processed(lyric)
-    return render_template('Lyrics_page.html', lyric=lyric, mp3 = "/static/output.mp3")
+    lyric_location = "/static/output.mp3"
+    return render_template('Lyrics_page.html', lyric=lyric, mp3=lyric_location)
 
 if __name__ == '__main__':
     app.run(debug=True)
