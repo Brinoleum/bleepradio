@@ -1,5 +1,6 @@
 # library that automatically filters out the bad words
 # i'm too lazy to make a dictionary for this
+
 from better_profanity import profanity
 import random
 from google.cloud import texttospeech
@@ -44,4 +45,3 @@ def output_processed(processed):
     with open('audio/output.mp3', 'wb') as out:
         out.write(response.audio_content)
         print('Audio content written to file output.mp3')
-

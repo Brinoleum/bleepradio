@@ -17,14 +17,14 @@ def my_form():
     form = LyricForm()
     if form.validate_on_submit():
         text = request.form['lyric']
-        processed = text
+        processed = process_lyrics(text)
         return redirect(url_for('lyrics', lyric=processed))
     return render_template('text_box.html', form=form)
 
 @app.route('/lyrics')
 def lyrics():
     lyric = request.args.get('lyric', None)
-    return render_template('Lyrics_page.html', lyric=lyric)
+    return render_template('Lyrics_page.html', lyric=lyric, mp3 = "/static/Pogs.mp3")
 
 if __name__ == '__main__':
     app.run(debug=True)
