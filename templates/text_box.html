@@ -1,3 +1,12 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+    <link rel="stylesheet" type ="text/css" href="{{url_for('static', filename='static.css')}}">
+    <div style="background-color:lightblue">
+        <h1>Enter in Lyrics To Bleep Them!!</h1>
+    </div>
+{% endblock %}
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <style>
@@ -8,9 +17,8 @@
 
 </style>
 <head>
-
-    <meta charset="UTF-8">
     <title>Bleeper</title>
+    <h1>Enter in Lyrics To Bleep Them!!</h1>
     <form method="POST">
         <input name="text">
         <input type="submit">
@@ -21,3 +29,4 @@
 
 </body>
 </html>
+-->
