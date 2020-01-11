@@ -4,6 +4,7 @@
 from better_profanity import profanity
 import random
 from google.cloud import texttospeech
+import os
 
 swear_replacements = [
         "bleezleborp", "plumbus", "atoteh", "boobasnot", "mychuno", 
@@ -39,9 +40,8 @@ def output_processed(processed):
     audio_config = texttospeech.types.AudioConfig(
             audio_encoding=texttospeech.enums.AudioEncoding.MP3
             )
-
+    #There is a delay of about a minute inbetween responses
     response=client.synthesize_speech(synthesis_input, voice, audio_config)
-
-    with open('audio/output.mp3', 'wb') as out:
+    with open('static/output.mp3', 'wb+') as out:
         out.write(response.audio_content)
         print('Audio content written to file output.mp3')
