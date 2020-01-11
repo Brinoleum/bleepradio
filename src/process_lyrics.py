@@ -43,8 +43,3 @@ def output_processed(processed):
         out.write(response.audio_content)
         print('Audio content written to file output.mp3')
 
-if __name__ == "__main__":
-    # get the lyrics somehow
-    lyrics = ""
-    processed = process_lyrics(lyrics)
-    output_processed(processed)

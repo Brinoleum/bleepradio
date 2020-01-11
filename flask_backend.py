@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request
+from src.process_lyrics import process_lyrics, output_processed
 
 app = Flask(__name__)
 #http://127.0.0.1:5000/
@@ -10,5 +11,10 @@ def my_form():
 @app.route('/', methods=['POST'])
 def my_form_post():
     text = request.form['text']
-    processed_text = text.upper() #FIXME this will run the function that will modify the bleeps
-    return processed_text
+    # process_lyrics replaces swears with Simlish
+    processed = process_lyrics(text)
+    output_processed(processed)
+    # so this should print the processed lyrics to the page
+    # side effects: writes the text-to-speech binary mp3 to a file
+    return processed
+
