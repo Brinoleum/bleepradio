@@ -8,7 +8,8 @@ import os
 
 swear_replacements = [
         "bleezleborp", "plumbus", "atoteh", "boobasnot", "mychuno", 
-        "litzergam", "dobbinips"]
+        "litzergam", "dobbinips", "pobito", "dobana", "cotatod", "tocamok",
+        "enolo", "kakotin"]
 
 # TODO: get the input from the user and feed that into the profanity filter
 def process_lyrics(lyrics):
