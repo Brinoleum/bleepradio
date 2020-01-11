@@ -9,7 +9,8 @@ from tswift import Song
 
 swear_replacements = [
         "bleezleborp", "plumbus", "atoteh", "boobasnot", "mychuno", 
-        "litzergam", "dobbinips"]
+        "litzergam", "dobbinips", "pobito", "dobana", "cotatod", "tocamok",
+        "enolo", "kakotin"]
 
 def retrieve_lyrics(artist_name, song_title):
     song = Song(artist_name, song_title)
