@@ -1,8 +1,9 @@
-from src.process_lyrics import process_lyrics, output_processed
+from src.process_lyrics import process_lyrics, output_processed, random_bgm
 from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField
+import time
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'thisisasecret'
@@ -21,17 +22,22 @@ def my_form():
     if form.validate_on_submit():
         text = request.form['lyric']
         processed = process_lyrics(text)
+        output_processed(processed)
         return redirect(url_for('lyrics', lyric=processed))
 
     return render_template('text_box.html', form=form)
-
-
+"""
+@app.route('/loading')
+def loading():
+    lyric_load = request.args.get('lyric', None)
+    time.sleep(45)
+    return redirect(url_for('lyrics', lyric=lyric_load))
+"""
 @app.route('/lyrics')
 def lyrics():
     lyric = request.args.get('lyric', None)
-    output_processed(lyric)
     lyric_location = "/static/output.mp3"
-    return render_template('Lyrics_page.html', lyric=lyric, mp3=lyric_location)
+    return render_template('Lyrics_page.html', lyric=lyric, mp3=lyric_location, bgm=random_bgm())
 
 if __name__ == '__main__':
     app.run(debug=True)

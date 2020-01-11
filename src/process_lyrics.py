@@ -5,6 +5,7 @@ from better_profanity import profanity
 import random
 from google.cloud import texttospeech
 from tswift import Song
+import os
 
 swear_replacements = [
         "bleezleborp", "plumbus", "atoteh", "boobasnot", "mychuno", 
@@ -25,7 +26,7 @@ def process_lyrics(name):
     # (actually because many censors use asterisks that might still work
     # if the music was already censored to an extent)
     profanity.load_censor_words()
-    custom_profanity = ["nigger", "nigga"]
+    custom_profanity = ["nigger", "nigga", "niggaz", "dicks"]
     profanity.add_censor_words(custom_profanity)
     lyrics = Song.find_song(name).lyrics
     print(lyrics)
@@ -37,8 +38,6 @@ def process_lyrics(name):
         return word
 
     return " ".join(process_word(word) for word in lyrics.split())
-
-#process_lyrics("Love Story")
 
 # this part is copy pasted from the online tutorial
 # basically outputs the text as a sound file
@@ -58,3 +57,9 @@ def output_processed(processed):
     with open('static/output.mp3', 'wb+') as out:
         out.write(response.audio_content)
         print('Audio content written to file output.mp3')
+
+def random_bgm():
+    dir = "static/audio"
+    filename = random.choice(os.listdir(dir))
+
+    return str(filename)
