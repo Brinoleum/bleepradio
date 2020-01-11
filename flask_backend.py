@@ -17,8 +17,13 @@ def my_form():
     if form.validate_on_submit():
         text = request.form['lyric']
         processed = text
-        return processed.upper()
+        return redirect(url_for('lyrics', lyric=processed))
     return render_template('text_box.html', form=form)
+
+@app.route('/lyrics')
+def lyrics():
+    lyric = request.args.get('lyric', None)
+    return render_template('Lyrics_page.html', lyric=lyric)
 
 if __name__ == '__main__':
     app.run(debug=True)
