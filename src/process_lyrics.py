@@ -12,12 +12,14 @@ swear_replacements = [
         "litzergam", "dobbinips", "pobito", "dobana", "cotatod", "tocamok",
         "enolo", "kakotin"]
 
-# def test():
-#     #s = Song('Taylor Swift', 'Love Story')
-#     s = Song.find_song('Love Story')
-#     print(s.lyrics)
+def retrieve_lyrics(artist_name, song_title):
+    song = Song.find_song(artist_name + song_title)
+    return song.lyrics
 
-# test()
+def test():
+     s = Song('Taylor Swift', 'Love Story')
+     s = Song.find_song('Love Story')
+     print(s.lyrics)
 
 # TODO: get the input from the user and feed that into the profanity filter
 def process_lyrics(name):
