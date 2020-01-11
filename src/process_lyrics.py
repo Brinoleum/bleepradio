@@ -42,6 +42,6 @@ def output_processed(processed):
 
     response=client.synthesize_speech(synthesis_input, voice, audio_config)
 
-    with open('audio/output.mp3', 'wb') as out:
+    with open('static/output.mp3', 'wb') as out:
         out.write(response.audio_content)
         print('Audio content written to file output.mp3')
