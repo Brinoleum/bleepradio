@@ -20,7 +20,7 @@ def my_form():
         processed = process_lyrics(text)
         return redirect(url_for('lyrics', lyric=processed))
     return render_template('text_box.html', form=form)
-
+"""
 @app.route('/', methods=['POST'])
 def my_form_post():
     text = request.form['text']
@@ -30,10 +30,12 @@ def my_form_post():
     # so this should print the processed lyrics to the page
     # side effects: writes the text-to-speech binary mp3 to a file
     return processed
+"""
 
 @app.route('/lyrics')
 def lyrics():
     lyric = request.args.get('lyric', None)
+    output_processed(lyric)
     return render_template('Lyrics_page.html', lyric=lyric, mp3 = "/static/Pogs.mp3")
 
 if __name__ == '__main__':
