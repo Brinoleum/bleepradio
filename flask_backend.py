@@ -10,7 +10,7 @@ bootstrap = Bootstrap(app)
 #http://127.0.0.1:5000/
 
 class LyricForm(FlaskForm):
-    lyric = StringField('lyric')
+    lyric = StringField('Search')
 
 def hello():
     return "Hello"
