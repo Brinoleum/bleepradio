@@ -38,9 +38,9 @@ def loading():
 def lyrics():
     lyric = request.args.get('lyric', None)
     name = request.args.get('name', None)
-    lyric_location = "/static/output.mp3"
+    #lyric_location = "/static/output.mp3"
 
-    return render_template('Lyrics_page.html', lyric=lyric, name=name, mp3=lyric_location, bgm=random_bgm())
+    return render_template('Lyrics_page.html', lyric=lyric, name=name, bgm=random_bgm())
 
 if __name__ == '__main__':
     app.run(debug=True)
