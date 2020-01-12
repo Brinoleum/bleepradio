@@ -2,6 +2,11 @@
 {% block content %}
 <link rel="stylesheet" type= "text/css"  href="{{ url_for('static', filename='lyric.css')}}">
     <h1>Bleeped Lyrics!!</h1>
+    <head>
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+    </head>
     <h2>{{ name }}</h2>
     <audio controls autoplay>
       <source src="/static/output.mp3" type="audio/mpeg">
