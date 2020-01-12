@@ -1,12 +1,17 @@
 {% extends "bootstrap/base.html" %}
 {% block content %}
 <link rel="stylesheet" type= "text/css"  href="{{ url_for('static', filename='style.css')}}">
-    <h1>Enter in Song To Bleep Lyrics!!</h1>
-    <form method="POST" action="{{url_for('my_form')}}">
-        {{ form.csrf_token}}
-        {{ form.lyric.label }}
-        {{ form.lyric }}
+<body>
+        <h1>Enter in Song To Bleep Lyrics!!</h1>
+        <form method="POST" action="{{url_for('my_form')}}">
+            {{ form.csrf_token}}
+            {{ form.lyric.label }}
+            {{ form.lyric }}
 
-        <input type="submit" value = "Submit">
-    </form>
+            <input type="submit" value = "Submit">
+        </form>
+    <div class="bg"></div>
+        <p class="py-5 text-center overlay2">
+
+</body>
 {% endblock %}
