@@ -3,7 +3,7 @@ from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField
-import time
+#import time
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'thisisasecret'
@@ -24,7 +24,7 @@ def my_form():
         processed = text.process_lyrics()
         name = text.song_name()
         text.output_processed(processed)
-        return redirect(url_for('lyrics', lyric=processed, name = name))
+        return redirect(url_for('lyrics', lyric=processed, name=name))
 
     return render_template('text_box.html', form=form)
 """
