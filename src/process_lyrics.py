@@ -34,7 +34,8 @@ class NoCuss:
         self.swear_replacements = swear_replacements
         custom_profanity = ["nigger", "nigga", "niggaz", "dicks", "niggas", "muthafucka", "chickenshit", "muthafuckin", "assed"\
                             , "assho", "motherfuckin'", "ho", "hoes", "fuckin'", "runnin'ass", "hoesass", "bitch'll", "shitass",\
-                            "twat", "child-fucker", "hell", "mothefucker", "niggaz'll", "mothafuckin'"]
+                            "twat", "child-fucker", "hell", "mothefucker", "niggaz'll", "mothafuckin'", "clusterfuck", \
+                            "fuckery", "mo'fuckin'"]
         self.custom_profanity = custom_profanity
 
     def process_word(self, word):

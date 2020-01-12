@@ -34,13 +34,7 @@ def my_form():
         return redirect(url_for('lyrics', lyric=processed, name=name))
 
     return render_template('text_box.html', form=form)
-"""
-@app.route('/loading')
-def loading():
-    lyric_load = request.args.get('lyric', None)
-    time.sleep(45)
-    return redirect(url_for('lyrics', lyric=lyric_load))
-"""
+
 @app.route('/lyrics')
 def lyrics():
     lyric = request.args.get('lyric', None)
