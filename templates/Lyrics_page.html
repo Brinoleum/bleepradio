@@ -1,19 +1,29 @@
 {% extends "bootstrap/base.html" %}
 {% block content %}
 <link rel="stylesheet" type= "text/css"  href="{{ url_for('static', filename='lyric.css')}}">
-    <h1>Bleeped Lyrics!!</h1>
-    <h2>{{ name }}</h2>
+<style>
+  body {
+    background-image: url('http://images.unsplash.com/photo-1528818955841-a7f1425131b5?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+</style>
+    <h1>Bleeped Lyrics</h1>
+
+    <h2>{{ name }}</h2> 
+
     <audio controls autoplay>
       <source src={{ mp3 }} type="audio/mpeg">
     Your browser does not support the audio element.
     </audio>
     <h2>{{ bgm }}</h2>
+
     <audio controls autoplay>
       <source src="/static/audio/{{ bgm }}" type="audio/mpeg">
     Your browser does not support the audio element.
     </audio>
-    <div>
-    </div>
+
     <p>
       Lyrics: {{ lyric }}
     </p>

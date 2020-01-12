@@ -1,10 +1,15 @@
+/*
+headline format
+*/
 h1 {
   color: #FFFFFF;
   text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, rgb(253, 25, 139) 0px 0px 40px, rgb(255, 28, 142) 0px 0px 50px, rgb(255, 29, 142) 0px 0px 75px;
   text-align: center;
 } 
 
-
+/*
+input text format
+*/
 form {
   text-align: center;
   font-family: "Comic Sans MS", cursive, sans-serif;
@@ -18,6 +23,9 @@ form {
   font-variant: normal;
 }
 
+/*
+submit button
+*/
 input[type="submit"]{
     box-shadow:inset 0px 1px 0px 0px #fbafe3;
     background:linear-gradient(to bottom, #eb459b 5%, #c90068 100%);
@@ -35,6 +43,9 @@ input[type="submit"]{
     text-shadow:0px 1px 0px #9e0052;
   }
 
+/*
+search text box format
+*/
 input[type=text] {
     width: 40%;
     padding: 5px 18px;
