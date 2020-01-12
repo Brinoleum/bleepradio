@@ -1,10 +1,47 @@
 h1 {
+  color: #FFFFFF;
+  text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, rgb(253, 25, 139) 0px 0px 40px, rgb(255, 28, 142) 0px 0px 50px, rgb(255, 29, 142) 0px 0px 75px;
   text-align: center;
-  color: Aqua;
-}
+} 
+
 
 form {
   text-align: center;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 21px;
+  letter-spacing: -0.2px;
+  word-spacing: 3.8px;
+  color: #5A00C9;
+  font-weight: 700;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+}
+
+input[type="submit"]{
+    box-shadow:inset 0px 1px 0px 0px #fbafe3;
+    background:linear-gradient(to bottom, #eb459b 5%, #c90068 100%);
+    background-color:#d4408d;
+    border-radius:6px;
+    border:1px solid #eb38bb;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #9e0052;
+  }
+
+input[type=text] {
+    width: 40%;
+    padding: 5px 18px;
+    margin: 8px 5px;
+    box-sizing: border-box;
+    border: 4px solid #b924b2;
+    border-radius: 2px; 
 }
 
 p {
