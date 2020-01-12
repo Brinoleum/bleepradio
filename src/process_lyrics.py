@@ -3,7 +3,7 @@
 
 from better_profanity import profanity
 import random
-from google.cloud import texttospeech
+from google.cloud import texttospeech, storage
 from tswift import Song
 import os
 
@@ -76,9 +76,10 @@ class NoCuss:
                 )
         #There is a delay of about a minute inbetween responses IF caching is NOT DISABLED
         response=client.synthesize_speech(synthesis_input, voice, audio_config)
-        with open('static/output.mp3', 'wb+') as out:
-            out.write(response.audio_content)
-            print('Audio content written to file output.mp3')
+        storage_client = storage.Client()
+        bucket = storage_client.bucket("clean-264805.appspot.com")
+        blob = bucket.blob("output.mp3")
+        blob.upload_from_file(response.audio_content)
 
     def song_name(self):
         profanity.load_censor_words()

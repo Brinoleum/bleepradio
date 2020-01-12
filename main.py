@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField
+from google.cloud import storage
 #import time
 
 app = Flask(__name__)
@@ -44,8 +45,13 @@ def loading():
 def lyrics():
     lyric = request.args.get('lyric', None)
     name = request.args.get('name', None)
-    #lyric_location = "/static/output.mp3"
-    return render_template('Lyrics_page.html', lyric=lyric, name=name, bgm=random_bgm())
+    storage_client = storage.Client()
+    bucket = storage_client.bucket("clean-264805.appspot.com")
+    blob = bucket.blob("output.mp3")
+    with open("/tmp/output.mp3", "wb+") as op:
+        blob.download_to_file(op)
+        template = render_template('Lyrics_page.html', lyric=lyric, name=name, bgm=random_bgm(), output = "/tmp/output.mp3")
+    return template
 
 if __name__ == '__main__':
     app.run(debug=True)
