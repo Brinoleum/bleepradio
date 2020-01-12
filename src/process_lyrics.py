@@ -48,7 +48,8 @@ def output_processed(processed):
     synthesis_input = texttospeech.types.SynthesisInput(text=processed)
     voice = texttospeech.types.VoiceSelectionParams(
             language_code='en-US',
-            ssml_gender=texttospeech.enums.SsmlVoiceGender.NEUTRAL
+
+            ssml_gender=texttospeech.enums.SsmlVoiceGender.MALE
             )
 
     audio_config = texttospeech.types.AudioConfig(
