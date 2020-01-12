@@ -28,7 +28,8 @@ def process_lyrics(name):
     # (actually because many censors use asterisks that might still work
     # if the music was already censored to an extent)
     profanity.load_censor_words()
-    custom_profanity = ["nigger", "nigga", "niggaz", "dicks", "niggas"]
+    custom_profanity = ["nigger", "nigga", "niggaz", "dicks", "niggas", "muthafucka", "chickenshit", "muthafuckin", "assed"\
+                        , "assho", "motherfuckin'", "ho", "hoes", "fuckin'", "runnin'ass", "hoesass", "bitch'll"]
     profanity.add_censor_words(custom_profanity)
     lyrics = Song.find_song(name).lyrics
     print(lyrics)
@@ -68,4 +69,17 @@ def random_bgm():
     return str(filename)
 
 def song_name(name):
-    return str(Song.find_song(name).title)
+
+    profanity.load_censor_words()
+    custom_profanity = ["nigger", "nigga", "niggaz", "dicks", "niggas", "muthafucka", "chickenshit", "muthafuckin", "assed"\
+                        , "assho", "motherfuckin'", "ho", "hoes", "fuckin'", "runnin'ass", "hoesass", "bitch'll"]
+    profanity.add_censor_words(custom_profanity)
+    title = str(Song.find_song(name).title)
+    title = profanity.censor(str(title))
+
+    def process_word(word):
+        if '*' in word:
+            word = random.choice(swear_replacements)
+        return word
+
+    return " ".join(process_word(word) for word in title.split())
