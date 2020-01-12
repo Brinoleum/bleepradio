@@ -1,9 +1,9 @@
-from src.process_lyrics import process_lyrics, output_processed, random_bgm, song_name
+from src.process_lyrics import NoCuss, random_bgm
 from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField
-import time
+#import time
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'thisisasecret'
@@ -20,11 +20,11 @@ def hello():
 def my_form():
     form = LyricForm()
     if form.validate_on_submit():
-        text = request.form['lyric']
-        processed = process_lyrics(text)
-        name = song_name(text)
-        output_processed(processed)
-        return redirect(url_for('lyrics', lyric=processed, name = name))
+        text = NoCuss(request.form['lyric'])
+        processed = text.process_lyrics()
+        name = text.song_name()
+        text.output_processed(processed)
+        return redirect(url_for('lyrics', lyric=processed, name=name))
 
     return render_template('text_box.html', form=form)
 """
