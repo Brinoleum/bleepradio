@@ -9,16 +9,15 @@
       background-size: cover;
     }
 </style>
+<br/>
 <body>
-        <h1>Enter in Song To Bleep Lyrics!!</h1>
+        <h1>Bleep That Song!</h1>
         <form method="POST" action="{{url_for('my_form')}}">
             {{ form.csrf_token}}
-            {{ form.lyric.label }}
-            {{ form.lyric }}
-
-            <input type="submit" value = "Submit">
+            <!--{{ form.lyric.label }} search word-->
+            {{ form.lyric }} <!-- search box-->
+            <input type="submit" value = "Bleep">
         </form>
-        <p class="py-5 text-center overlay2">
 </body>
 
 {% endblock %}
