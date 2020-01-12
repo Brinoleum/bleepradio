@@ -34,7 +34,7 @@ class NoCuss:
         self.swear_replacements = swear_replacements
         custom_profanity = ["nigger", "nigga", "niggaz", "dicks", "niggas", "muthafucka", "chickenshit", "muthafuckin", "assed"\
                             , "assho", "motherfuckin'", "ho", "hoes", "fuckin'", "runnin'ass", "hoesass", "bitch'll", "shitass",\
-                            "twat", "child-fucker", "hell", "mothefucker"]
+                            "twat", "child-fucker", "hell", "mothefucker", "niggaz'll", "mothafuckin'"]
         self.custom_profanity = custom_profanity
 
     def process_word(self, word):
@@ -61,7 +61,10 @@ class NoCuss:
     # basically outputs the text as a sound file
     def output_processed(self, processed):
         client = texttospeech.TextToSpeechClient()
-        synthesis_input = texttospeech.types.SynthesisInput(text=processed)
+        if len(processed) < 5000:
+            synthesis_input = texttospeech.types.SynthesisInput(text=processed)
+        else:
+            synthesis_input = texttospeech.types.SynthesisInput(text=processed[:5000])
         voice = texttospeech.types.VoiceSelectionParams(
                 language_code='en-US',
 
@@ -71,7 +74,7 @@ class NoCuss:
         audio_config = texttospeech.types.AudioConfig(
                 audio_encoding=texttospeech.enums.AudioEncoding.MP3
                 )
-        #There is a delay of about a minute inbetween responses
+        #There is a delay of about a minute inbetween responses IF caching is NOT DISABLED
         response=client.synthesize_speech(synthesis_input, voice, audio_config)
         with open('static/output.mp3', 'wb+') as out:
             out.write(response.audio_content)
